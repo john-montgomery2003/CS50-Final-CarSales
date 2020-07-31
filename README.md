@@ -5,7 +5,7 @@ This is a project for CS50's web programming with Python and JS. This is the 5th
 
 The site - [Car](https://car.johnmontgomery.tech)
 
-A youtube video showing the pages - [Video]()
+A youtube video showing the pages - [Video](https://youtu.be/veQX72VSVGM)
 
 The requirements and brief - [Docs](https://cs50.harvard.edu/web/2020/projects/final/capstone/)
 
