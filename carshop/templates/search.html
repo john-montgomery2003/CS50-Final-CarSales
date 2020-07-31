@@ -1,0 +1,150 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Cars.
+{% endblock %}
+
+{% block style %}
+<style>
+.form-group{
+  padding-top:5px;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-bottom: 0px;
+}
+.inputLabel{
+  color: #999999;
+  font-family: 'Lato', sans-serif;
+}
+.messageForm{
+  margin-top:20px;
+  border-style: solid;
+  border-width: medium;
+  border-color: grey;
+}
+body {
+  overscroll-behavior-y: none;
+}
+a {
+  color: black;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+img {
+  padding:3px;
+}
+p {
+  color: #FAFAFA;
+  font-size: 12px;
+}
+form {
+  position:relative;
+  left: 20%;
+  text-align: center;
+  align-items: center;
+  background:#FAFAFA;
+  border:1px solid #606060;
+  border-radius:24px;
+  height:40px;
+  margin:0;
+  width:60%;
+}
+.text-in {
+  margin: 14px;
+  margin-top: 1px;
+  font:16px 'Didot',sans-serif;
+  line-height:34px;
+  height:34px;
+  background-color:transparent;
+  border:none;
+  outline:none;
+  display:flex;
+  flex:100%;
+  height:34px;
+  font-size:16px
+}
+body  {
+  font-family: 'Didot', sans-serif;
+  background: linear-gradient(to left, #C60127 0%,#C60127 50%,#FAFAFA 50%,#FAFAFA 50%,#FAFAFA 100%);
+  }
+
+h2 {
+    color: #606060;
+    padding: 10px 0px 0px 10px;
+  }
+
+.btn {
+  font-size: 16px;
+}
+.carData {
+  border: 1px #606060 solid;
+  padding:3px;
+  margin-top: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+h1 {
+  padding:5px;
+}
+.carData:hover {
+  border: 3px #606060 solid;
+}
+@media only screen and (max-width: 1200px) {
+  img{
+    display:none;
+  }
+}
+@media only screen and (max-width: 600px) {
+    #mobile {
+      display: none;
+    }
+    img{
+      display: block;
+    }
+    form {
+      top:40%;
+      width: 80%;
+      left: 10%;
+    }
+    h2 {
+      font-size: 40px;
+    }
+  }
+
+</style>
+{% endblock %}
+
+{% block body %}
+  <h1>Search.</h1>
+  <form class="verticalcenter" action="/search">
+    <input autocomplete="off" class = "text-in" name="search" type="text" size=55 placeholder="Search Now... (Year, Make, Model)">
+    <button type="submit" class="btn btn-dark">Find Your Car!</button>
+  </form><br><br><br><br>
+  {% for car in carData %}
+  <a href='car/{{car.id}}'>
+    <div class="carData">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-2"><br>
+            <h5>{{car.make}} - {{car.model}}</h5><br>
+            <h6>YEAR - {{car.year}}</h6>
+            <h6>MIALGE - {{car.milage}}</h6>
+            <h6>PRICE - £{{car.cost}}</h6>
+          </div>
+          <div class="col-sm-4">
+            <img src="{{car.Main_Image.url}}" height=150px>
+          </div>
+          <div class="col-sm-6" id="mobile">
+            <p>{{car.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+  {% endfor %}
+{% endblock %}

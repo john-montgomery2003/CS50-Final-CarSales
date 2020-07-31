@@ -1,0 +1,117 @@
+{% extends 'index.html' %}
+
+{% block title %}About.{% endblock %}
+
+{% block style %}
+<style>
+body {
+  overscroll-behavior-y: none;
+}
+
+p {
+  padding-left:20px;
+  padding-top: 10px;
+  font-size:16px;
+  color:#FAFAFA;
+}
+#Mobile {
+  display: none;
+}
+#map {
+    height: 350px;
+    width: 110%;
+    margin: 20px;
+}
+img{
+  padding: 20px;
+  margin:0px;
+}
+.messageForm{
+  position:fixed;
+  left:10px;
+  width:48%;
+  border:1px #606060 solid;
+  padding:5px;
+}
+body  {
+  font-family: 'Didot', sans-serif;
+  background: linear-gradient(to left, #C60127 0%,#C60127 50%,#FAFAFA 50%,#FAFAFA 50%,#FAFAFA 100%);
+  }
+
+h1 {
+    text-align: center;
+    font-size: 70px;
+    padding: 40px 0px 0px 30px;
+  }
+@media only screen and (max-width: 600px) {
+  #map {
+    width:90%;
+    height: 200px;
+  }
+  img {
+    width: 100%;
+  }
+  .messageForm{
+    position:relative;
+    left:0px;
+    padding:20px;
+    width:100%;
+    background: #FAFAFA;
+  }
+  #Desktop {
+    display: none;
+  }
+  #Mobile {
+    display: block;
+  }
+  p {
+    background: #FAFAFA;
+    padding:10px;
+    border-radius: 5px;
+    border: 1px #606060 solid;
+    color: black;
+    font-size:13px;
+  }
+}
+</style>
+{% endblock %}
+
+{% block body %}
+<body>
+  <div class="container">
+    <div class="row">
+        <div class="col-sm"><h1>ABOUT.</h1></div>
+
+        <div class="col-sm"><p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam lobortis neque odio, ut tincidunt nibh commodo eget. Ut facilisis turpis velit, at mattis lacus tempor accumsan. Praesent urna velit, facilisis eget orci in, accumsan tristique dolor. Cras id sagittis orci. Phasellus id orci id nunc finibus suscipit.
+        </p></div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="row">
+        <div class="col-sm">
+          <img src="static/card.png" width = 100%>
+        </div>
+        <div class="col-sm">
+          <img src="static/card.png" width = 100%>
+        </div>
+        <div class="col-sm">
+          <img src="static/card.png" width = 100%>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+          <img src="static/card.png" width = 100%>
+        </div>
+        <div class="col-sm">
+          <img src="static/card.png" width = 100%>
+        </div>
+        <div class="col-sm">
+          <img src="static/card.png" width = 100%>
+        </div>
+    </div>
+  </div>
+</body>
+{% endblock %}

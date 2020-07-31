@@ -1,0 +1,139 @@
+{% extends 'index.html' %}
+
+{% block title %}Contact.{% endblock %}
+
+{% block style %}
+<style>
+body {
+  overscroll-behavior-y: none;
+}
+
+p {
+  padding-left:20px;
+  font-size:20px;
+}
+#Mobile {
+  display: none;
+}
+#map {
+    height: 350px;
+    width: 110%;
+    margin: 20px;
+}
+img{
+  padding: 20px;
+  margin:0px;
+}
+.messageForm{
+  position:fixed;
+  left:10px;
+  width:48%;
+  border:1px #606060 solid;
+  padding:5px;
+}
+body  {
+  font-family: 'Didot', sans-serif;
+  background: linear-gradient(to left, #C60127 0%,#C60127 50%,#FAFAFA 50%,#FAFAFA 50%,#FAFAFA 100%);
+  }
+
+h2 {
+    color: #606060;
+    padding: 10px 0px 0px 10px;
+  }
+@media only screen and (max-width: 600px) {
+  #map {
+    width:90%;
+    height: 200px;
+  }
+  img {
+    width: 100%;
+  }
+  .messageForm{
+    position:relative;
+    left:0px;
+    padding:20px;
+    width:100%;
+    background: #FAFAFA;
+  }
+  #Desktop {
+    display: none;
+  }
+  #Mobile {
+    display: block;
+  }
+  p {
+    font-size:13px;
+  }
+}
+</style>
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <h1 style="font-size:50px;padding:0px">CONTACT</h1>
+        <div class="details">
+          <p style="color:Dark Grey;">Phone - +44 -----------</p>
+          <p style="color:Dark Grey;">Email - example@example.com</p>
+        </div>
+
+
+        <form class="messageForm">
+          <div class="form-group">
+            <label for="email" class="inputLabel">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="example@example.com">
+          </div>
+
+          <div class="form-group">
+            <label for="text" class="inputLabel">Enter your message here...</label>
+            <textarea class="form-control" id="text" rows="12"class="inputLabel"></textarea>
+          </div>
+          <button onclick="sendMessage()" "type="submit" id="submitButton" class="btn btn-secondary center" style = "width: 100%; padding:2px;">Send</button>
+        </form>
+        <div style="padding-top:400px;"id=Desktop>
+        <p style="color:Dark Grey">1 Example Road</p>
+        <p style="color:Dark Grey;">#### ###</p>
+        <p style="color:Dark Grey;">Example Town</p>
+        </div>
+      </div>
+      <div class="col-sm">
+        <img width=117% src="static/dealership.jpg">
+        <div id="map"></div>
+        <script>
+          // Initialize and add the map
+          function initMap() {
+            // The location of Uluru
+            var uluru = {lat: -25.344, lng: 131.036};
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), {zoom: 4, center: uluru});
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({position: uluru, map: map});
+          }
+        </script>
+        <script defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1HHkJu4menRhO3DiouDoCc5W-Y0T9Sec&callback=initMap">
+        </script>
+        <div id=Mobile>
+        <p style="color:Dark Grey;font-size:20px;">1 Example Road</p>
+        <p style="color:Dark Grey;font-size:20px;;">#### ###</p>
+        <p style="color:Dark Grey;font-size:20px;;">Example Town</p>
+        </div>
+      </div>
+    </div>
+    <script>
+    const submit = document.querySelector('#submitButton');
+    const email = document.querySelector('#email');
+    const body = document.querySelector('#text');
+    submit.disabled = true;
+    document.onkeyup = () => {
+      if (body.value.length>0 && email.value.length>0) {
+        submit.disabled = false;
+      }
+      else {
+        submit.disabled = true;
+      }
+    }
+    </script>
+{% endblock %}
